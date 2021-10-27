@@ -7,12 +7,6 @@
             <div class="col-sm-6">
                 <h1 class="m-0">Dashboard</h1>
             </div><!-- /.col -->
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Dashboard v1</li>
-                </ol>
-            </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
 </div>
@@ -28,27 +22,27 @@
                 <div class="small-box bg-info">
                     <div class="inner">
                         <h3>{{$trx}}</h3>
-                        <p>Transaksi</p>
+                        <p>TRANSAKSI</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-bag"></i>
                     </div>
-                    <a href="/transaction" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="/transaction" class="small-box-footer">Lihat Semua <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
+            @if($role=='admin')
             <div class="col-lg-3 col-6">
                 <!-- small box -->
                 <div class="small-box bg-success">
                     <div class="inner">
-                        <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                        <p>Bounce Rate</p>
+                        <h3>{{$user}}</h3>
+                        <p>PENGGUNA</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="/users" class="small-box-footer">Lihat Semua <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
@@ -56,32 +50,16 @@
                 <!-- small box -->
                 <div class="small-box bg-warning">
                     <div class="inner">
-                        <h3>44</h3>
-
-                        <p>User Registrations</p>
+                        <h3>{{$skpd}}</h3>
+                        <p>SKPD</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-person-add"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="/skpd" class="small-box-footer">Lihat Semua <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-danger">
-                    <div class="inner">
-                        <h3>65</h3>
-
-                        <p>Unique Visitors</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-pie-graph"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
-            <!-- ./col -->
+            @endif
         </div>
         <!-- /.row -->
     </div>

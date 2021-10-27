@@ -7,7 +7,6 @@ use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 
 class TransactionController extends Controller
 {
@@ -93,7 +92,9 @@ class TransactionController extends Controller
             ->where('users.id', $me->id)
             ->join('skpd', 'skpd.id', 'users.skpd')
             ->first();
-        $data = Transaction::where('id', $id)
+        $data = Transaction::select("transactions.*", "skpd.skpd")
+            ->where('transactions.id', $id)
+            ->join('skpd', 'skpd.id', 'transactions.skpd_id')
             ->first();
         return view('transaction.edit', [
             'data' => $data,

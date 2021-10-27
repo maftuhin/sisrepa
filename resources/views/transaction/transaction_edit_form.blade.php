@@ -32,7 +32,7 @@
             </tr>
             <tr>
                 <td>SKPD</td>
-                <td><input type="text" name="skpd" class="form-control" disabled value="{{$user->skpd}}"></td>
+                <td><input type="text" class="form-control" disabled value="{{$data->skpd}}"></td>
             </tr>
             <tr>
                 <td colspan="2" class="table-success"><b>SPM/SPD</b></td>
