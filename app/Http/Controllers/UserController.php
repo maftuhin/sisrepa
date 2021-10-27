@@ -142,7 +142,12 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $destroy = User::find($id)->delete();
+        if ($destroy == 1) {
+            return redirect('users');
+        } else {
+            return response($destroy);
+        }
     }
 
     public function export()

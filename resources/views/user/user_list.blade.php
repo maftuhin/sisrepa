@@ -53,7 +53,7 @@
                                     <td>{{$data->role}}</td>
                                     <td style="text-align: center;">
                                         <a href="/user/edit/{{$data->id}}" class="btn btn-sm btn-primary"><i class="right fas fa-edit"></i></a>
-                                        <a href="/users/destroy/{{$data->id}}" class="btn btn-sm btn-danger"><i class="right fas fa-trash"></i></a>
+                                        <a href="/user/destroy/{{$data->id}}" class="btn btn-sm btn-danger"><i class="right fas fa-trash"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach

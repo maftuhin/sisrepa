@@ -18,11 +18,10 @@ class AuthController extends Controller
 
     function login()
     {
-        if (Auth::check()) { // true sekalian session field di users nanti bisa 
+        if (Auth::check()) {
             return redirect('/');
         }
-        $key = Hash::make('123456');
-        return view('auth.login',['key'=> $key]);
+        return view('auth.login');
     }
 
     function auth(Request $request)
@@ -48,12 +47,7 @@ class AuthController extends Controller
 
     public function logout()
     {
-        Auth::logout(); // menghapus session yang aktif
-        // return redirect()->route('login');
-        // Auth::logout();
-        // Session::put('token', null);
-        // Session::save();
+        Auth::logout();
         return redirect('/login');
-        // return response()->json(['message' => 'User successfully signed out']);
     }
 }

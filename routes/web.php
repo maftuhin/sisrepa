@@ -41,6 +41,7 @@ Route::post('/user/store', [UserController::class, 'store']);
 Route::get('/user/edit/{id}', [UserController::class, 'edit']);
 Route::post('/user/update/{id}', [UserController::class, 'update']);
 Route::get('/user/export', [UserController::class, 'export']);
+Route::get('/user/destroy/{id}', [UserController::class, 'destroy']);
 
 Route::get('/skpd', [SkpdController::class, 'index']);
 Route::get('/skpd/create', [SkpdController::class, 'create']);
