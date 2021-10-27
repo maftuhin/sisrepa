@@ -62,7 +62,7 @@
             </tr>
             <tr>
                 <td>Nilai Transaksi</td>
-                <td><input type="number" name="nilai_transaksi" class="form-control" placeholder="Masukan Nilai Transaksi"></td>
+                <td><input type="text" name="nilai_transaksi" class="form-control" placeholder="Masukan Nilai Transaksi"></td>
             </tr>
             <!-- PPN -->
             <tr>

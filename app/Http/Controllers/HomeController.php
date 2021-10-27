@@ -32,7 +32,7 @@ class HomeController extends Controller
             $trx = Transaction::where('skpd_id', $me->skpd)->count();
             return view('home.dashboard', [
                 'trx' => $trx,
-                'user' => $me
+                'role' => $me->role
             ]);
         }
     }

@@ -57,7 +57,7 @@ class TransactionController extends Controller
             'nilai_spd' => 'required',
             'nomor_sp2d' => 'required',
             'nilai_sp2d' => 'required',
-            'nilai_transaksi' => 'required',
+            'nilai_transaksi' => 'required:numeric',
             'uraian_transaksi' => 'required',
             'no_urut' => 'required'
         ], [
@@ -112,6 +112,7 @@ class TransactionController extends Controller
             'nomor_sp2d' => 'nullable',
             'nilai_sp2d' => 'nullable',
             'no_urut' => 'required',
+            'nilai_transaksi' => 'required',
         ]);
 
         $update = Transaction::where('id', $id)
@@ -122,6 +123,7 @@ class TransactionController extends Controller
                 'nomor_sp2d' => $validated['nomor_sp2d'],
                 'nilai_sp2d' => $validated['nilai_sp2d'],
                 'uraian_transaksi' => $validated['uraian_transaksi'],
+                'nilai_transaksi' => $validated['nilai_transaksi']
             ]);
         if ($update == 1) {
             return redirect('/transaction')->with('success', 'Data Berhasil Diubah');
@@ -146,11 +148,20 @@ class TransactionController extends Controller
 
     function copy(Request $request, $id)
     {
-        $validated = $request->validate([
-            'uraian_transaksi' => 'required',
-            'nilai_transaksi' => 'required'
-        ]);
         $transaction = Transaction::find($id);
+        $count = Transaction::where('nomor_spd', $transaction->nomor_spd)
+            ->sum('nilai_transaksi');
+        $limit = $transaction->nilai_spd - $count;
+
+        $validated = $request->validate([
+            'no_urut' => 'required',
+            'uraian_transaksi' => 'required',
+            'nilai_transaksi' => 'required|numeric|max:' . $limit
+        ], [
+            'nilai_transaksi.max' => 'Nilai Transaksi Tidak Boleh lebih dari Rp.' . number_format($limit, 0, ',', '.'),
+            'uraian_transaksi.required'
+        ]);
+
         $new = $transaction->replicate();
         $new->no_urut = $validated['no_urut'];
         $new->uraian_transaksi = $validated['uraian_transaksi'];

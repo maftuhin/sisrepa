@@ -1,16 +1,6 @@
 <form method="POST" action="/transaction/copy/{{$data->id}}">
     @csrf
     <div class="card-body">
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
-
         <table class="form-group table-sm" style="width: 100%;">
             <tr>
                 <td>No. Urut</td>
@@ -32,11 +22,19 @@
             </tr>
             <tr>
                 <td>Uraian Transaksi</td>
-                <td><input type="text" name="uraian_transaksi" class="form-control" placeholder="Masukan Uraian Transaksi"></td>
+                <td><input type="text" name="uraian_transaksi" class="form-control" placeholder="Masukan Uraian Transaksi">
+                    @if ($errors->has('uraian_transaksi'))
+                    <span class="text-danger">{{ $errors->first('uraian_transaksi') }}</span>
+                    @endif
+                </td>
             </tr>
             <tr>
                 <td>Nilai Transaksi</td>
-                <td><input type="number" name="nilai_transaksi" class="form-control" placeholder="Masukan Nilai Transaksi"></td>
+                <td><input type="number" name="nilai_transaksi" class="form-control" placeholder="Masukan Nilai Transaksi">
+                    @if ($errors->has('nilai_transaksi'))
+                    <span class="text-danger">{{ $errors->first('nilai_transaksi') }}</span>
+                    @endif
+                </td>
             </tr>
         </table>
     </div>

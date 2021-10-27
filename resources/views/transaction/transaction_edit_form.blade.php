@@ -66,7 +66,7 @@
             </tr>
             <tr>
                 <td>Nilai Transaksi</td>
-                <td><input type="number" name="nilai_transaksi" class="form-control" placeholder="Masukan Nilai Transaksi" value="{{$data->nilai_transaksi}}"></td>
+                <td><input type="text" name="nilai_transaksi" class="form-control" placeholder="Masukan Nilai Transaksi" value="{{$data->nilai_transaksi}}"></td>
             </tr>
         </table>
     </div>
