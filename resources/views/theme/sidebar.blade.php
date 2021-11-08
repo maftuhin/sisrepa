@@ -50,7 +50,7 @@
                 @endif
                 <li class="nav-header">AKUN</li>
                 <li class="nav-item">
-                    <a href="/logout" class="nav-link">
+                    <a href="#" data-toggle="modal" data-target="#confirm-logout" class="nav-link">
                         <i class="nav-icon fas fa-sign-out-alt"></i>
                         <p class="text">Log out</p>
                     </a>
@@ -61,3 +61,19 @@
     </div>
     <!-- /.sidebar -->
 </aside>
+<div class="modal fade" id="confirm-logout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <b>Keluar</b>
+                </div>
+                <div class="modal-body">
+                    Keluar Dari Aplikasi?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                    <a href="/logout" class="btn btn-danger btn-ok"><b>Keluar</b></a>
+                </div>
+            </div>
+        </div>
+    </div>
