@@ -43,7 +43,7 @@
             </tr>
             <tr>
                 <td>Uraian SPM/SPD</td>
-                <td><input type="text" name="uraian_spm_spd" class="form-control" placeholder="Masukan Uraian SPM/SPD"></td>
+                <td><input type="text" name="uraian_spd" class="form-control" placeholder="Masukan Uraian SPM/SPD"></td>
             </tr>
             <tr>
                 <td colspan="2" class="table-success"><b>SP2D</b></td>
