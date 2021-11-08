@@ -8,6 +8,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TransactionController extends Controller
 {
@@ -252,7 +253,7 @@ class TransactionController extends Controller
 
     function export()
     {
-        $date = Carbon::now()->isoFormat('YYYY-MM-DD');
+        $date = Carbon::now()->isoFormat('YYYY-MM-DD h:m');
         return (new TransactionsExport)->download('Transactions-' . $date . '.xlsx');
     }
 }
