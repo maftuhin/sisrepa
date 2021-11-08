@@ -51,12 +51,37 @@
                                     <th colspan="2">SP2D</th>
                                     <th rowspan="2" style="min-width: 300px;">Uraian Transaksi</th>
                                     <th rowspan="2">Nominal Transaksi</th>
+                                    <th colspan="3">PPN</th>
+                                    <th colspan="3">PPH21</th>
+                                    <th colspan="3">PPH22</th>
+                                    <th colspan="3">PPH23</th>
+                                    <th colspan="3">PPHFIN</th>
                                 </tr>
                                 <tr>
                                     <th>Nomor</th>
                                     <th>Nilai Belanja</th>
                                     <th>Nomor</th>
                                     <th>Nilai Belanja</th>
+                                    <!-- PPN -->
+                                    <th>Jenis</th>
+                                    <th>Jumlah</th>
+                                    <th>NTPN</th>
+                                    <!-- PPH21 -->
+                                    <th>Jenis</th>
+                                    <th>Jumlah</th>
+                                    <th>NTPN</th>
+                                    <!-- PPH22 -->
+                                    <th>Jenis</th>
+                                    <th>Jumlah</th>
+                                    <th>NTPN</th>
+                                    <!-- PPH23 -->
+                                    <th>Jenis</th>
+                                    <th>Jumlah</th>
+                                    <th>NTPN</th>
+                                    <!-- PPHFIN -->
+                                    <th>Jenis</th>
+                                    <th>Jumlah</th>
+                                    <th>NTPN</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -78,6 +103,26 @@
                                     <td style="text-align: end;">Rp {{number_format($d->nilai_sp2d,0,',',',')}}</td>
                                     <td>{{$d->uraian_transaksi}}</td>
                                     <td style="text-align: end;">Rp {{number_format($d->nilai_transaksi,0,',',',')}}</td>
+                                    <!-- PPN -->
+                                    <td>{{$d->ppn_jenis}}</td>
+                                    <td>{{$d->ppn_jumlah}}</td>
+                                    <td>{{$d->ppn_ntpn}}</td>
+                                    <!-- PPN -->
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <!-- PPN -->
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <!-- PPN -->
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <!-- PPN -->
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -109,31 +154,3 @@
     }
 </style>
 @endsection
-<!-- @section('js')
-<script type="text/javascript">
-    $(function() {
-        $("#example1").DataTable({
-            scrollX: true,
-            // responsive: false,
-            // lengthChange: false,
-            paging: false,
-            searching: false,
-            ordering: true,
-            // autoWidth: false,
-            // // buttons: ["excel", "pdf", "print"],
-            // columnDefs: [{
-            //     // "render": function(data, type, row) {
-            //     //     return data + ' (' + row[3] + ')';
-            //     // },
-            //     render: $.fn.dataTable.render.number(',', '.'),
-            //     "targets": 6
-            // }, {
-            //     render: $.fn.dataTable.render.number(',', '.'),
-            //     "targets": 4
-            // }]
-        });
-        // $('.dataTables_length').addClass('bs-select');
-        // .buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    });
-</script>
-@endsection -->

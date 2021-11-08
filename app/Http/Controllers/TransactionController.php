@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\TransactionsExport;
 use App\Models\Transaction;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -53,13 +54,29 @@ class TransactionController extends Controller
         $me = Auth::user();
         $validated = $request->validate([
             'trx' => 'required',
+            'no_urut' => 'required',
             'nomor_spd' => 'required',
             'nilai_spd' => 'required',
+            'uraian_spd' => '',
             'nomor_sp2d' => 'required',
             'nilai_sp2d' => 'required',
             'nilai_transaksi' => 'required:numeric',
             'uraian_transaksi' => 'required',
-            'no_urut' => 'required'
+            'ppn_jenis' => '',
+            'ppn_jumlah' => '',
+            'ppn_ntpn' => '',
+            'pph21_jenis' => '',
+            'pph21_jumlah' => '',
+            'pph21_ntpn' => '',
+            'pph22_jenis' => '',
+            'pph22_jumlah' => '',
+            'pph22_ntpn' => '',
+            'pph23_jenis' => '',
+            'pph23_jumlah' => '',
+            'pph23_ntpn' => '',
+            'pphfin_jenis' => '',
+            'pphfin_jumlah' => '',
+            'pphfin_ntpn' => '',
         ], [
             'nomor_spd.required' => 'Nomor SPD Wajib Diisi',
             'nilai_spd.required' => 'Nilai SPD Wajib Diisi',
@@ -75,8 +92,24 @@ class TransactionController extends Controller
             'uraian_transaksi' => $validated['uraian_transaksi'],
             'nilai_spd' => $validated['nilai_spd'],
             'nomor_spd' => $validated['nomor_spd'],
+            'uraian_spd' => $validated['uraian_spd'],
             'nomor_sp2d' => $validated['nomor_sp2d'],
-            'nilai_sp2d' => $validated['nilai_sp2d']
+            'nilai_sp2d' => $validated['nilai_sp2d'],
+            'ppn_jenis' => $validated['ppn_jenis'],
+            'ppn_jumlah' => $validated['ppn_jumlah'],
+            'ppn_ntpn' => $validated['ppn_ntpn'],
+            'pph21_jenis' => $validated['pph21_jenis'],
+            'pph21_jumlah' => $validated['pph21_jumlah'],
+            'pph21_ntpn' => $validated['pph21_ntpn'],
+            'pph22_jenis' => $validated['pph22_jenis'],
+            'pph22_jumlah' => $validated['pph22_jumlah'],
+            'pph22_ntpn' => $validated['pph22_ntpn'],
+            'pph23_jenis' => $validated['pph23_jenis'],
+            'pph23_jumlah' => $validated['pph23_jumlah'],
+            'pph23_ntpn' => $validated['pph23_ntpn'],
+            'pphfin_jenis' => $validated['pphfin_jenis'],
+            'pphfin_jumlah' => $validated['pphfin_jumlah'],
+            'pphfin_ntpn' => $validated['pphfin_ntpn'],
         ]);
         if ($store == 1) {
             return redirect("/transaction");
@@ -106,13 +139,30 @@ class TransactionController extends Controller
     function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'uraian_transaksi' => 'required',
-            'nomor_spd' => 'required',
             'trx' => 'required',
+            'no_urut' => 'required',
+            'nomor_spd' => 'required',
+            'nilai_spd' => 'required',
+            'uraian_spd' => '',
             'nomor_sp2d' => 'nullable',
             'nilai_sp2d' => 'nullable',
-            'no_urut' => 'required',
             'nilai_transaksi' => 'required',
+            'uraian_transaksi' => 'required',
+            'ppn_jenis' => '',
+            'ppn_jumlah' => '',
+            'ppn_ntpn' => '',
+            'pph21_jenis' => '',
+            'pph21_jumlah' => '',
+            'pph21_ntpn' => '',
+            'pph22_jenis' => '',
+            'pph22_jumlah' => '',
+            'pph22_ntpn' => '',
+            'pph23_jenis' => '',
+            'pph23_jumlah' => '',
+            'pph23_ntpn' => '',
+            'pphfin_jenis' => '',
+            'pphfin_jumlah' => '',
+            'pphfin_ntpn' => '',
         ]);
 
         $update = Transaction::where('id', $id)
@@ -120,10 +170,27 @@ class TransactionController extends Controller
                 'trx' => $validated['trx'],
                 'no_urut' => $validated['no_urut'],
                 'nomor_spd' => $validated['nomor_spd'],
+                'nilai_spd' => $validated['nilai_spd'],
+                'uraian_spd' => $validated['uraian_spd'],
                 'nomor_sp2d' => $validated['nomor_sp2d'],
                 'nilai_sp2d' => $validated['nilai_sp2d'],
                 'uraian_transaksi' => $validated['uraian_transaksi'],
-                'nilai_transaksi' => $validated['nilai_transaksi']
+                'nilai_transaksi' => $validated['nilai_transaksi'],
+                'ppn_jenis' => $validated['ppn_jenis'],
+                'ppn_jumlah' => $validated['ppn_jumlah'],
+                'ppn_ntpn' => $validated['ppn_ntpn'],
+                'pph21_jenis' => $validated['pph21_jenis'],
+                'pph21_jumlah' => $validated['pph21_jumlah'],
+                'pph21_ntpn' => $validated['pph21_ntpn'],
+                'pph22_jenis' => $validated['pph22_jenis'],
+                'pph22_jumlah' => $validated['pph22_jumlah'],
+                'pph22_ntpn' => $validated['pph22_ntpn'],
+                'pph23_jenis' => $validated['pph23_jenis'],
+                'pph23_jumlah' => $validated['pph23_jumlah'],
+                'pph23_ntpn' => $validated['pph23_ntpn'],
+                'pphfin_jenis' => $validated['pphfin_jenis'],
+                'pphfin_jumlah' => $validated['pphfin_jumlah'],
+                'pphfin_ntpn' => $validated['pphfin_ntpn'],
             ]);
         if ($update == 1) {
             return redirect('/transaction')->with('success', 'Data Berhasil Diubah');
@@ -185,6 +252,7 @@ class TransactionController extends Controller
 
     function export()
     {
-        return (new TransactionsExport)->download('transaction-list.xlsx');
+        $date = Carbon::now()->isoFormat('YYYY-MM-DD');
+        return (new TransactionsExport)->download('Transactions-' . $date . '.xlsx');
     }
 }

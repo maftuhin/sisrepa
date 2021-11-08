@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\UsersExport;
 use App\Models\Skpd;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -152,7 +153,7 @@ class UserController extends Controller
 
     public function export()
     {
-        return (new UsersExport)->forRole('editor')->download('user-list.xlsx');
-        // return Excel::download(new UsersExport, 'users.xlsx');
+        $date = Carbon::now()->isoFormat('YYYY-MM-DD');
+        return (new UsersExport)->forRole('editor')->download('users-' . $date . '.xlsx');
     }
 }
