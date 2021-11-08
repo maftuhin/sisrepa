@@ -89,7 +89,7 @@
                                 <tr>
                                     <td style="text-align: center;" class="no-wrap">
                                         <a href="/transaction/edit/{{$d->id}}" class="btn btn-sm btn-primary"><i class="right fas fa-edit"></i></a>
-                                        <a href="/transaction/delete/{{$d->id}}" class="btn btn-sm btn-danger"><i class="right fas fa-trash"></i></a>
+                                        <a href="#" data-toggle="modal" data-href="/transaction/delete/{{$d->id}}" class="btn btn-sm btn-danger" data-target="#confirm-delete"><i class="right fas fa-trash"></i></a>
                                         @if($d->trx=='GU' && $user->role!='admin')
                                         <a href="/transaction/duplicate/{{$d->id}}" class="btn btn-sm btn-success"><i class="right fas fa-plus"></i></a>
                                         @endif
@@ -138,6 +138,22 @@
     </div>
     <!-- /.container-fluid -->
 </section>
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <b>Hapus Transaksi</b>
+            </div>
+            <div class="modal-body">
+                Hapus transaksi ini? tidak bisa dikembalikan.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                <a class="btn btn-danger btn-ok"><b>Hapus</b></a>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- /.content -->
 @endsection
 
@@ -153,4 +169,12 @@
         text-align: center;
     }
 </style>
+@endsection
+
+@section('js')
+<script>
+    $('#confirm-delete').on('show.bs.modal', function(e) {
+        $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+    });
+</script>
 @endsection
