@@ -16,9 +16,20 @@ class TransactionsExport implements FromQuery, WithHeadings, WithStyles, ShouldA
 
     public function styles(Worksheet $sheet)
     {
+        $sheet->mergeCells('A1:A2');
+        $sheet->mergeCells('B1:B2');
+        $sheet->mergeCells('C1:C2');
+        $sheet->mergeCells('D1:E1');
+        $sheet->mergeCells('F1:G1');
+        $sheet->mergeCells('H1:H2');
+        $sheet->mergeCells('I1:I2');
         return [
-            1 => ['font' => ['bold' => true]],
-            2 => ['font' => ['bold' => true]],
+            1 => ['font' => ['bold' => true], ['alignment' => [
+                'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER
+            ]]],
+            2 => ['font' => ['bold' => true], ['alignment' => [
+                'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER
+            ]]],
         ];
     }
 
@@ -26,26 +37,26 @@ class TransactionsExport implements FromQuery, WithHeadings, WithStyles, ShouldA
     {
         return [
             [
-                "-",
-                "-",
-                '-',
-                'SPM/SPD',
-                '-',
-                'SP2D',
-                '-',
-                '-',
-                '-'
-            ],
-            [
                 'NO URUT',
                 'JENIS TRX',
                 'SKPD',
-                'NOMOR',
-                'NILAI BELANJA',
-                'NOMOR',
-                'NILAI BELANJA',
+                'SPM/SPD',
+                '',
+                'SP2D',
+                '',
                 'URAIAN TRANSAKSI',
                 'NILAI TRANSAKSI'
+            ],
+            [
+                '',
+                '',
+                '',
+                'NOMOR',
+                'NILAI BELANJA',
+                'NOMOR',
+                'NILAI BELANJA',
+                '',
+                ''
             ],
         ];
     }

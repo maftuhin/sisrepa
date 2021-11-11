@@ -48,3 +48,4 @@ Route::get('/skpd/create', [SkpdController::class, 'create']);
 Route::post('/skpd/store', [SkpdController::class, 'store']);
 Route::get('/skpd/edit/{id}', [SkpdController::class, 'edit']);
 Route::post('/skpd/update/{id}', [SkpdController::class, 'update']);
+Route::get('/skpd/export', [SkpdController::class, 'export']);

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\SKPDExport;
 use App\Models\Skpd;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class SkpdController extends Controller
@@ -110,5 +112,11 @@ class SkpdController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function export()
+    {
+        $date = Carbon::now()->isoFormat('YYYY-MM-DD h:m');
+        return (new SKPDExport)->download('skpd-' . $date . '.xlsx');
     }
 }

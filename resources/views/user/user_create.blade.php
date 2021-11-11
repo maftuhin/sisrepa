@@ -24,16 +24,6 @@
                     <form method="POST" action="/user/store">
                         @csrf
                         <div class="card-body">
-                            @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            @endif
-
                             <div class="form-group">
                                 <label>SKPD</label>
                                 <select class="form-control" name="skpd">
@@ -44,11 +34,14 @@
                             </div>
                             <div class="form-group">
                                 <label>Nama</label>
-                                <input type="text" name="name" class="form-control" placeholder="Nama" />
+                                <input type="text" name="name" class="form-control" placeholder="Nama" value="{{old('name')}}" required />
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="email" name="email" class="form-control" placeholder="Email Address" />
+                                <input type="email" name="email" class="form-control" placeholder="Email Address" required value="{{old('email')}}"/>
+                                @if ($errors->has('email'))
+                                <span class="text-danger">{{ $errors->first('email') }}</span>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <label>Role</label>
@@ -60,7 +53,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="password" name="password" class="form-control" placeholder="Masukkan password" />
+                                <input type="password" name="password" class="form-control" placeholder="Masukkan password" required value="{{old('password')}}"/>
                             </div>
                         </div>
                         <!-- /.card-body -->

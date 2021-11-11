@@ -69,13 +69,14 @@ class UserController extends Controller
             'name.required' => 'Nama Wajib Diisi',
             'password.required' => 'Password Wajib Diisi',
             'email.required' => 'Email Wajib Diisi',
+            'email.unique' => 'Email Sudah Terpaikai'
         ]);
         $store = User::insert([
             'name' => $validated['name'],
             'password' => Hash::make($validated['password']),
             'email' => $validated['email'],
             'skpd' => $validated['skpd'],
-            'role' => $validated['role']
+            'role' => strtolower($validated['role'])
         ]);
         if ($store == 1) {
             return redirect('/users')->with('success', 'User Telah Berhasil Dibuat.');
@@ -153,7 +154,7 @@ class UserController extends Controller
 
     public function export()
     {
-        $date = Carbon::now()->isoFormat('YYYY-MM-DD');
-        return (new UsersExport)->forRole('editor')->download('users-' . $date . '.xlsx');
+        $date = Carbon::now()->isoFormat('YYYY-MM-DD h:m');
+        return (new UsersExport)->download('users-' . $date . '.xlsx');
     }
 }

@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Daftar User</h1>
+                <h1>Daftar SKPD</h1>
             </div>
         </div>
     </div><!-- /.container-fluid -->
@@ -21,6 +21,7 @@
                     <div class="card-header">
                         @if (Auth::user()->role == 'admin')
                         <a class="btn btn-sm btn-primary" href="/skpd/create">Tambah SKPD</a>
+                        <a class="btn btn-sm btn-warning" href="/skpd/export">Export SKPD (xlxs)</a>
                         @endif
                     </div>
                     <!-- /.card-header -->
