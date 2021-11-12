@@ -34,11 +34,18 @@
 
 @section('style')
 <style>
-    .form-header{
+    .form-header {
         color: #006400;
     }
-    td{
+
+    td {
         vertical-align: middle;
     }
 </style>
+@endsection
+
+@section('js')
+<script>
+    $("input[required], select[required]").attr("oninvalid", "this.setCustomValidity('Wajib Diisi!')");
+</script>
 @endsection

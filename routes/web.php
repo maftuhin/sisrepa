@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CorrectionController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SkpdController;
 use App\Http\Controllers\TransactionController;
@@ -25,7 +26,6 @@ Route::get('/logout', [AuthController::class, 'logout']);
 Route::post('/auth', [AuthController::class, 'auth']);
 
 Route::get('/transaction', [TransactionController::class, 'index']);
-Route::get('/transactions', [TransactionController::class, 'list']);
 Route::get('/transaction/create', [TransactionController::class, 'create']);
 Route::post("/transaction/store", [TransactionController::class, 'store']);
 Route::get('/transaction/edit/{id}', [TransactionController::class, 'edit']);
@@ -49,3 +49,10 @@ Route::post('/skpd/store', [SkpdController::class, 'store']);
 Route::get('/skpd/edit/{id}', [SkpdController::class, 'edit']);
 Route::post('/skpd/update/{id}', [SkpdController::class, 'update']);
 Route::get('/skpd/export', [SkpdController::class, 'export']);
+Route::get('/skpd/destroy/{id}', [SkpdController::class, 'destroy']);
+
+Route::get('/correction/create', [CorrectionController::class, 'create']);
+Route::post('/correction/store', [CorrectionController::class, 'store']);
+Route::get('/correction/edit/{id}', [CorrectionController::class, 'edit']);
+Route::post('/correction/update/{id}', [CorrectionController::class, 'update']);
+Route::get('/correction/destroy/{id}', [CorrectionController::class, 'destroy']);

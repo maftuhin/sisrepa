@@ -16,7 +16,7 @@ class SKPDExport implements FromQuery, WithHeadings, WithStyles, ShouldAutoSize
     public function headings(): array
     {
         return [
-            '#',
+            'ID',
             'SKPD'
         ];
     }

@@ -50,7 +50,7 @@ class SkpdController extends Controller
             ['skpd' => $validated['skpd']]
         );
         if ($insert == 1) {
-            return redirect('/skpd');
+            return redirect('/skpd')->with('success', 'Data SKPD Berhasil');
         } else {
             return response($insert);
         }
@@ -111,7 +111,12 @@ class SkpdController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $destroy = Skpd::find($id)->delete();
+        if ($destroy == 1) {
+            return redirect('skpd')->with('success', 'Data Berhasil dihapus');
+        } else {
+            return response($destroy);
+        }
     }
 
     public function export()

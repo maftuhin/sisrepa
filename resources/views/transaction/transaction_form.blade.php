@@ -24,7 +24,7 @@
             </tr>
             <tr>
                 <td>No. Urut</td>
-                <td><input type="text" name="no_urut" class="form-control" value="{{old('no_urut')}}" require></td>
+                <td><input type="text" name="no_urut" class="form-control" value="{{old('no_urut')}}" required></td>
             </tr>
             <tr>
                 <td>SKPD</td>
@@ -35,11 +35,11 @@
             </tr>
             <tr>
                 <td>Nomor</td>
-                <td><input type="text" value="{{old('nomor_spd')}}" name="nomor_spd" class="form-control" placeholder="Nomor"></td>
+                <td><input type="text" value="{{old('nomor_spd')}}" name="nomor_spd" class="form-control" placeholder="Nomor" required></td>
             </tr>
             <tr>
                 <td>Nilai Belanja</td>
-                <td><input type="text" name="nilai_spd" class="form-control" placeholder="Nilai Belanja"></td>
+                <td><input type="text" name="nilai_spd" class="form-control" placeholder="Nilai Belanja" required></td>
             </tr>
             <tr>
                 <td>Uraian SPM/SPD</td>
@@ -50,22 +50,22 @@
             </tr>
             <tr>
                 <td>Nomor</td>
-                <td><input type="text" name="nomor_sp2d" class="form-control" placeholder="Nomor"></td>
+                <td><input type="text" name="nomor_sp2d" class="form-control" placeholder="Nomor" required></td>
             </tr>
             <tr>
                 <td>Nilai Belanja</td>
-                <td><input type="text" name="nilai_sp2d" class="form-control" placeholder="Nilai Belanja"></td>
+                <td><input type="text" name="nilai_sp2d" class="form-control" placeholder="Nilai Belanja" required></td>
             </tr>
             <tr>
                 <td colspan="2" class="table-success"><b>TRANSAKSI</b></td>
             </tr>
             <tr>
                 <td>Uraian Transaksi</td>
-                <td><input type="text" name="uraian_transaksi" class="form-control" placeholder="Masukan Uraian Transaksi"></td>
+                <td><input type="text" name="uraian_transaksi" class="form-control" placeholder="Masukan Uraian Transaksi" required></td>
             </tr>
             <tr>
                 <td>Nilai Transaksi</td>
-                <td><input type="text" name="nilai_transaksi" class="form-control" placeholder="Masukan Nilai Transaksi"></td>
+                <td><input type="text" name="nilai_transaksi" class="form-control" placeholder="Masukan Nilai Transaksi" required></td>
             </tr>
             <!-- PPN -->
             <tr>
