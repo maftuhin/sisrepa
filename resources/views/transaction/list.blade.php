@@ -108,11 +108,11 @@
                                     <td style="text-align: end;">Rp {{number_format($d->nilai_transaksi,0,',',',')}}</td>
                                     <!-- PPN -->
                                     <td>{{$d->ppn_jenis}}</td>
-                                    <td>{{$d->ppn_jumlah}}</td>
+                                    <td>@money($d->ppn_jumlah)</td>
                                     <td>{{$d->ppn_ntpn}}</td>
-                                    <!-- PPN -->
+                                    <!-- PPH21 -->
                                     <td></td>
-                                    <td></td>
+                                    <td>@money($d->pph21_jumlah)</td>
                                     <td></td>
                                     <!-- PPN -->
                                     <td></td>

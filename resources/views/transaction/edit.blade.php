@@ -38,13 +38,21 @@
         color: #006400;
     }
 
-    th{
+    th {
         vertical-align: middle;
     }
 </style>
 @endsection
 @section('js')
 <script type="text/javascript">
+    $(document).ready(function() {
+        $("#moneyInput, #money_input, .currency_input, .money").maskMoney({
+            thousands: '.',
+            decimal: ',',
+            affixesStay: false,
+            precision: 0
+        });
+    });
     // var transaction = document.getElementById('nilai-transaksi');
     // transaction.addEventListener('keyup', function(e) {
     //     transaction.value = formatRupiah(this.value)
