@@ -93,6 +93,9 @@
                                         @if($d->trx=='GU' && $user->role!='admin')
                                         <a href="/transaction/duplicate/{{$d->id}}" class="btn btn-sm btn-success"><i class="right fas fa-plus"></i></a>
                                         @endif
+                                        @if($user->role=='admin')
+                                        <a href="/correction/create/{{$d->id}}" class="btn btn-sm btn-success">Koreksi</a>
+                                        @endif
                                     </td>
                                     <td style="text-align: center;">{{$d->trx}}</td>
                                     <td>{{$d->no_urut}}</td>

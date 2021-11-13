@@ -51,8 +51,8 @@ Route::post('/skpd/update/{id}', [SkpdController::class, 'update']);
 Route::get('/skpd/export', [SkpdController::class, 'export']);
 Route::get('/skpd/destroy/{id}', [SkpdController::class, 'destroy']);
 
-Route::get('/correction/create', [CorrectionController::class, 'create']);
-Route::post('/correction/store', [CorrectionController::class, 'store']);
+Route::get('/correction/create/{id}', [CorrectionController::class, 'create']);
+Route::post('/correction/store/{id}', [CorrectionController::class, 'store']);
 Route::get('/correction/edit/{id}', [CorrectionController::class, 'edit']);
 Route::post('/correction/update/{id}', [CorrectionController::class, 'update']);
 Route::get('/correction/destroy/{id}', [CorrectionController::class, 'destroy']);
