@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Correction;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 
 class CorrectionController extends Controller
@@ -30,8 +31,10 @@ class CorrectionController extends Controller
                 'data' => $correction
             ]);
         } else {
+            $data = Transaction::find($id);
             return view('correction.c_create', [
-                'id' => $id
+                'id' => $id,
+                'data' => $data
             ]);
         }
     }
@@ -49,16 +52,16 @@ class CorrectionController extends Controller
             'ppn_jumlah' => 'integer',
             'ppn_ntpn' => '',
             'pph21_jenis' => '',
-            'pph21_jumlah' => 'integer',
+            'pph21_jumlah' => '',
             'pph21_ntpn' => '',
             'pph22_jenis' => '',
-            'pph22_jumlah' => 'integer',
+            'pph22_jumlah' => '',
             'pph22_ntpn' => '',
             'pph23_jenis' => '',
-            'pph23_jumlah' => 'integer',
+            'pph23_jumlah' => '',
             'pph23_ntpn' => '',
             'pphfin_jenis' => '',
-            'pphfin_jumlah' => 'integer',
+            'pphfin_jumlah' => '',
             'pphfin_ntpn' => '',
         ]);
 

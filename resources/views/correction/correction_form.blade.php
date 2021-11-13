@@ -7,7 +7,7 @@
         <table class="form-group table-sm" style="width: 100%;">
             <!-- PPN -->
             <tr>
-                <td colspan="2" class="table-success"><b>POTONGAN PAJAK PPN</b></td>
+                <td colspan="2" ><b>POTONGAN PAJAK PPN</b></td>
             </tr>
             <tr>
                 <td>JENIS PAJAK</td>
@@ -23,7 +23,7 @@
             </tr>
             <!-- PPH21 -->
             <tr>
-                <td colspan="2" class="table-success"><b>POTONGAN PAJAK PPH21</b></td>
+                <td colspan="2" ><b>POTONGAN PAJAK PPH21</b></td>
             </tr>
             <tr>
                 <td>JENIS PAJAK</td>
@@ -39,7 +39,7 @@
             </tr>
             <!-- PPH22 -->
             <tr>
-                <td colspan="2" class="table-success"><b>POTONGAN PAJAK PPH22</b></td>
+                <td colspan="2" ><b>POTONGAN PAJAK PPH22</b></td>
             </tr>
             <tr>
                 <td>JENIS PAJAK</td>
@@ -55,7 +55,7 @@
             </tr>
             <!-- PPH23 -->
             <tr>
-                <td colspan="2" class="table-success"><b>POTONGAN PAJAK PPH23</b></td>
+                <td colspan="2" ><b>POTONGAN PAJAK PPH23</b></td>
             </tr>
             <tr>
                 <td>JENIS PAJAK</td>
@@ -71,7 +71,7 @@
             </tr>
             <!-- PPHFIN -->
             <tr>
-                <td colspan="2" class="table-success"><b>POTONGAN PAJAK PPHFIN</b></td>
+                <td colspan="2" ><b>POTONGAN PAJAK PPHFIN</b></td>
             </tr>
             <tr>
                 <td>JENIS PAJAK</td>
