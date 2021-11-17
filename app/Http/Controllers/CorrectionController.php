@@ -27,9 +27,7 @@ class CorrectionController extends Controller
     {
         $correction = Correction::where('trx_id', $id)->first();
         if ($correction != null) {
-            return view('correction.c_view', [
-                'data' => $correction
-            ]);
+            return redirect('/correction/show/'.$id);
         } else {
             $data = Transaction::find($id);
             return view('correction.c_create', [
@@ -97,7 +95,10 @@ class CorrectionController extends Controller
      */
     public function show($id)
     {
-        //
+        $correction = Correction::where('trx_id', $id)->first();
+        return view('correction.c_view', [
+            'data' => $correction
+        ]);
     }
 
     /**
@@ -108,7 +109,13 @@ class CorrectionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $correction = Correction::where('trx_id', $id)
+            ->join('transactions', 'transactions.id', 'corrections.trx_id')
+            ->first();
+        return view('correction.c_edit', [
+            'data' => $correction,
+            'id' => $id
+        ]);
     }
 
     /**
@@ -122,21 +129,42 @@ class CorrectionController extends Controller
     {
         $validated = $request->validate([
             'ppn_jenis' => '',
-            'ppn_jumlah' => 'integer',
+            'ppn_jumlah' => '',
             'ppn_ntpn' => '',
             'pph21_jenis' => '',
-            'pph21_jumlah' => 'integer',
+            'pph21_jumlah' => '',
             'pph21_ntpn' => '',
             'pph22_jenis' => '',
-            'pph22_jumlah' => 'integer',
+            'pph22_jumlah' => '',
             'pph22_ntpn' => '',
             'pph23_jenis' => '',
-            'pph23_jumlah' => 'integer',
+            'pph23_jumlah' => '',
             'pph23_ntpn' => '',
             'pphfin_jenis' => '',
-            'pphfin_jumlah' => 'integer',
+            'pphfin_jumlah' => '',
             'pphfin_ntpn' => '',
         ]);
+
+        $update = Correction::where('trx_id', $id)->update([
+            'c_ppn_jenis' => $validated['ppn_jenis'],
+            'c_ppn_jumlah' => $validated['ppn_jumlah'],
+            'c_ppn_ntpn' => $validated['ppn_ntpn'],
+            'c_pph21_jenis' => $validated['pph21_jenis'],
+            'c_pph21_jumlah' => $validated['pph21_jumlah'],
+            'c_pph21_ntpn' => $validated['pph21_ntpn'],
+            'c_pph22_jenis' => $validated['pph22_jenis'],
+            'c_pph22_jumlah' => $validated['pph22_jumlah'],
+            'c_pph22_ntpn' => $validated['pph22_ntpn'],
+            'c_pph23_jenis' => $validated['pph23_jenis'],
+            'c_pph23_jumlah' => $validated['pph23_jumlah'],
+            'c_pph23_ntpn' => $validated['pph23_ntpn'],
+            'c_pphfin_jenis' => $validated['pphfin_jenis'],
+            'c_pphfin_jumlah' => $validated['pphfin_jumlah'],
+            'c_pphfin_ntpn' => $validated['pphfin_ntpn'],
+        ]);
+        if ($update == 1) {
+            return redirect('/correction/create/' . $id);
+        }
     }
 
     /**

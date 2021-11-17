@@ -101,7 +101,7 @@
                                     <td>{{$d->no_urut}}</td>
                                     <td class="no-wrap">{{$d->skpd}}</td>
                                     <td>{{$d->nomor_spd}}</td>
-                                    <td style="text-align: end;">Rp. {{number_format($d->nilai_spd,0,',',',')}}</td>
+                                    <td style="text-align: end;">Rp {{number_format($d->nilai_spd,0,',',',')}}</td>
                                     <td>{{$d->nomor_sp2d}}</td>
                                     <td style="text-align: end;">Rp {{number_format($d->nilai_sp2d,0,',',',')}}</td>
                                     <td>{{$d->uraian_transaksi}}</td>

@@ -30,7 +30,7 @@ class UsersExport implements FromQuery, WithHeadings, WithStyles, ShouldAutoSize
     public function headings(): array
     {
         return [
-            '#',
+            'ID',
             'NAMA',
             'SKPD',
             'ROLE',

@@ -23,6 +23,11 @@ class TransactionsExport implements FromQuery, WithHeadings, WithStyles, ShouldA
         $sheet->mergeCells('F1:G1');
         $sheet->mergeCells('H1:H2');
         $sheet->mergeCells('I1:I2');
+        $sheet->mergeCells('J1:L1');
+        $sheet->mergeCells('M1:O1');
+        $sheet->mergeCells('P1:R1');
+        $sheet->mergeCells('S1:U1');
+        $sheet->mergeCells('V1:X1');
         return [
             1 => ['font' => ['bold' => true], ['alignment' => [
                 'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER
@@ -45,7 +50,22 @@ class TransactionsExport implements FromQuery, WithHeadings, WithStyles, ShouldA
                 'SP2D',
                 '',
                 'URAIAN TRANSAKSI',
-                'NILAI TRANSAKSI'
+                'NILAI TRANSAKSI',
+                'PPN',
+                '',
+                '',
+                'PPH21',
+                '',
+                '',
+                'PPH22',
+                '',
+                '',
+                'PPH23',
+                '',
+                '',
+                'PPHFIN',
+                '',
+                '',
             ],
             [
                 '',
@@ -56,7 +76,26 @@ class TransactionsExport implements FromQuery, WithHeadings, WithStyles, ShouldA
                 'NOMOR',
                 'NILAI BELANJA',
                 '',
-                ''
+                '',
+                'Jenis',
+                'Jumlah',
+                'NTPN',
+                // pph21
+                'Jenis',
+                'Jumlah',
+                'NTPN',
+                // pph22
+                'Jenis',
+                'Jumlah',
+                'NTPN',
+                // pph23
+                'Jenis',
+                'Jumlah',
+                'NTPN',
+                // pphfin
+                'Jenis',
+                'Jumlah',
+                'NTPN',
             ],
         ];
     }

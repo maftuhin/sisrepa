@@ -19,6 +19,9 @@
         <div class="col-md-12">
             <!-- general form elements -->
             <div class="card">
+                <div class="card-header">
+                    <a href="/correction/edit/{{$data->trx_id}}" class="btn btn-primary btn-sm">Edit Koreksi</a>
+                </div>
                 <div class="card-body">
                     <!-- form start -->
                     <table class="form-group table-sm" style="width: 100%;">

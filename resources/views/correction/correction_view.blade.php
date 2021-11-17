@@ -1,5 +1,5 @@
 <div class="card-header">
-    <h1>Data Asli</h1>
+    <h4>Data Asli</h4>
 </div>
 <div class="card-body">
     <table class="form-group table-sm" style="width: 100%;">
@@ -29,7 +29,7 @@
         </tr>
         <tr>
             <td>JUMLAH</td>
-            <td><input  class="form-control" disabled></td>
+            <td><input  class="form-control" value="@money($data->pph21_jumlah)" disabled></td>
         </tr>
         <tr>
             <td>NTPN</td>
@@ -41,15 +41,15 @@
         </tr>
         <tr>
             <td>JENIS PAJAK</td>
-            <td><input class="form-control" disabled></td>
+            <td><input class="form-control" value="{{$data->pph22_jenis}}" disabled></td>
         </tr>
         <tr>
             <td>JUMLAH</td>
-            <td><input  class="form-control" disabled></td>
+            <td><input  class="form-control" value="@money($data->pph22_jumlah)" disabled></td>
         </tr>
         <tr>
             <td>NTPN</td>
-            <td><input class="form-control" disabled></td>
+            <td><input class="form-control" value="{{$data->pph22_ntpn}}" disabled></td>
         </tr>
         <!-- PPH23 -->
         <tr>
@@ -57,15 +57,15 @@
         </tr>
         <tr>
             <td>JENIS PAJAK</td>
-            <td><input class="form-control" disabled></td>
+            <td><input class="form-control" value="{{$data->pph23_jenis}}" disabled></td>
         </tr>
         <tr>
             <td>JUMLAH</td>
-            <td><input  class="form-control" disabled></td>
+            <td><input  class="form-control" value="@money($data->pph23_jumlah)" disabled></td>
         </tr>
         <tr>
             <td>NTPN</td>
-            <td><input class="form-control" disabled></td>
+            <td><input class="form-control" value="{{$data->pph23_ntpn}}" disabled></td>
         </tr>
         <!-- PPHFIN -->
         <tr>
@@ -73,15 +73,15 @@
         </tr>
         <tr>
             <td>JENIS PAJAK</td>
-            <td><input class="form-control" disabled></td>
+            <td><input class="form-control" value="{{$data->pphfin_jenis}}" disabled></td>
         </tr>
         <tr>
             <td>JUMLAH</td>
-            <td><input  class="form-control" disabled></td>
+            <td><input  class="form-control" value="@money($data->pphfin_jumlah)" disabled></td>
         </tr>
         <tr>
             <td>NTPN</td>
-            <td><input class="form-control" disabled></td>
+            <td><input class="form-control" value="{{$data->pphfin_ntpn}}" disabled></td>
         </tr>
     </table>
 </div>
