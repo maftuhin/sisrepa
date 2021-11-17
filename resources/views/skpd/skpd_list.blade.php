@@ -35,7 +35,7 @@
                         <table id="example1" class="table table-bordered table-striped table-sm">
                             <thead>
                                 <tr>
-                                    <th style="width: 10%;">Id</th>
+                                    <th style="width: 1%;">Id</th>
                                     <th style="width: auto;">Name</th>
                                     <th style="text-align: center;">Action</th>
                                 </tr>

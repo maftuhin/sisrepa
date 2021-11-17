@@ -21,8 +21,9 @@ class TransactionController extends Controller
     {
         $me = Auth::user();
         if ($me->role == "admin") {
-            $data = Transaction::select('transactions.*', 'skpd.skpd')
+            $data = Transaction::select('corrections.*','transactions.*', 'skpd.skpd')
                 ->leftJoin('skpd', 'skpd.id', 'transactions.skpd_id')
+                ->leftJoin('corrections', 'corrections.trx_id', 'transactions.id')
                 ->paginate(20);
         } else {
             $data = Transaction::select('transactions.*', 'skpd.skpd')

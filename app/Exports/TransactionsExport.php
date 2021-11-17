@@ -103,7 +103,32 @@ class TransactionsExport implements FromQuery, WithHeadings, WithStyles, ShouldA
     public function query()
     {
         return Transaction::query()
-            ->select('no_urut', 'trx', 'skpd', 'nomor_spd', 'nilai_spd', 'nomor_sp2d', 'nilai_sp2d', 'uraian_transaksi', 'nilai_transaksi')
+            ->select(
+                'no_urut',
+                'trx',
+                'skpd',
+                'nomor_spd',
+                'nilai_spd',
+                'nomor_sp2d',
+                'nilai_sp2d',
+                'uraian_transaksi',
+                'nilai_transaksi',
+                'ppn_jenis',
+                'ppn_jumlah',
+                'ppn_ntpn',
+                'pph21_jenis',
+                'pph21_jumlah',
+                'pph21_ntpn',
+                'pph22_jenis',
+                'pph22_jumlah',
+                'pph22_ntpn',
+                'pph23_jenis',
+                'pph23_jumlah',
+                'pph23_ntpn',
+                'pphfin_jenis',
+                'pphfin_jumlah',
+                'pphfin_ntpn',
+            )
             ->join('skpd', 'skpd.id', 'transactions.skpd_id');
     }
 }

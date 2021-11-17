@@ -94,7 +94,11 @@
                                         <a href="/transaction/duplicate/{{$d->id}}" class="btn btn-sm btn-success"><i class="right fas fa-plus"></i></a>
                                         @endif
                                         @if($user->role=='admin')
-                                        <a href="/correction/create/{{$d->id}}" class="btn btn-sm btn-success">Koreksi</a>
+                                        @if($d->trx_id != null)
+                                        <a href="/correction/show/{{$d->trx_id}}" class="btn btn-sm btn-warning"><i class="fas fa-eye"></i> Koreksi</a>
+                                        @else
+                                        <a href="/correction/create/{{$d->id}}" class="btn btn-sm btn-success"><i class="fas fa-edit"></i> Koreksi</a>
+                                        @endif
                                         @endif
                                     </td>
                                     <td style="text-align: center;">{{$d->trx}}</td>
@@ -111,21 +115,21 @@
                                     <td>@money($d->ppn_jumlah)</td>
                                     <td>{{$d->ppn_ntpn}}</td>
                                     <!-- PPH21 -->
-                                    <td></td>
+                                    <td>{{$d->pph21_jenis}}</td>
                                     <td>@money($d->pph21_jumlah)</td>
-                                    <td></td>
+                                    <td>{{$d->pph21_ntpn}}</td>
                                     <!-- PPN -->
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{{$d->pph22_jenis}}</td>
+                                    <td>@money($d->pph22_jumlah)</td>
+                                    <td>{{$d->pph22_ntpn}}</td>
                                     <!-- PPN -->
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{{$d->pph23_jenis}}</td>
+                                    <td>@money($d->pph23_jumlah)</td>
+                                    <td>{{$d->pph23_ntpn}}</td>
                                     <!-- PPN -->
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{{$d->pphfin_jenis}}</td>
+                                    <td>@money($d->pphfin_jumlah)</td>
+                                    <td>{{$d->pphfin_ntpn}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

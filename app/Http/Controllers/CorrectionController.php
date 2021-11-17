@@ -27,7 +27,7 @@ class CorrectionController extends Controller
     {
         $correction = Correction::where('trx_id', $id)->first();
         if ($correction != null) {
-            return redirect('/correction/show/'.$id);
+            return redirect('/correction/show/' . $id);
         } else {
             $data = Transaction::find($id);
             return view('correction.c_create', [
@@ -47,7 +47,7 @@ class CorrectionController extends Controller
     {
         $validated = $request->validate([
             'ppn_jenis' => '',
-            'ppn_jumlah' => 'integer',
+            'ppn_jumlah' => '',
             'ppn_ntpn' => '',
             'pph21_jenis' => '',
             'pph21_jumlah' => '',
@@ -175,6 +175,10 @@ class CorrectionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete = Correction::where('trx_id', $id)->delete();
+        if ($delete == 1) {
+            return redirect('/transaction');
+        }
+        return $delete;
     }
 }

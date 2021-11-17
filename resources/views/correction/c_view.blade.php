@@ -20,7 +20,8 @@
             <!-- general form elements -->
             <div class="card">
                 <div class="card-header">
-                    <a href="/correction/edit/{{$data->trx_id}}" class="btn btn-primary btn-sm">Edit Koreksi</a>
+                    <a href="/correction/edit/{{$data->trx_id}}" class="btn btn-primary btn-sm"><i class="right fas fa-edit"></i> Ubah Koreksi</a>
+                    <a href="/correction/destroy/{{$data->trx_id}}" class="btn btn-danger btn-sm"><i class="right fas fa-trash"></i> Hapus Koreksi</a>
                 </div>
                 <div class="card-body">
                     <!-- form start -->
@@ -35,7 +36,7 @@
                         </tr>
                         <tr>
                             <td>JUMLAH</td>
-                            <td>{{$data->c_ppn_jumlah}}</td>
+                            <td>@money($data->c_ppn_jumlah)</td>
                         </tr>
                         <tr>
                             <td>NTPN</td>
@@ -51,7 +52,7 @@
                         </tr>
                         <tr>
                             <td>JUMLAH</td>
-                            <td>{{$data->c_pph21_jumlah}}</td>
+                            <td>@money($data->c_pph21_jumlah)</td>
                         </tr>
                         <tr>
                             <td>NTPN</td>
