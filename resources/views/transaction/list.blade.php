@@ -8,12 +8,6 @@
             <div class="col-sm-6">
                 <h1>List Transaksi</h1>
             </div>
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">DataTables</li>
-                </ol>
-            </div>
         </div>
     </div><!-- /.container-fluid -->
 </section>
@@ -47,7 +41,7 @@
                                     <th rowspan="2">Jenis Trx</th>
                                     <th rowspan="2">No Urut</th>
                                     <th rowspan="2">SKPD</th>
-                                    <th colspan="2">SPD/SPM</th>
+                                    <th colspan="3">SPD/SPM</th>
                                     <th colspan="2">SP2D</th>
                                     <th rowspan="2" style="min-width: 300px;">Uraian Transaksi</th>
                                     <th rowspan="2">Nominal Transaksi</th>
@@ -60,6 +54,7 @@
                                 <tr>
                                     <th>Nomor</th>
                                     <th>Nilai Belanja</th>
+                                    <th>Uraian</th>
                                     <th>Nomor</th>
                                     <th>Nilai Belanja</th>
                                     <!-- PPN -->
@@ -105,11 +100,12 @@
                                     <td>{{$d->no_urut}}</td>
                                     <td class="no-wrap">{{$d->skpd}}</td>
                                     <td>{{$d->nomor_spd}}</td>
-                                    <td style="text-align: end;">Rp {{number_format($d->nilai_spd,0,',',',')}}</td>
+                                    <td style="text-align: end;">@money($d->nilai_spd)</td>
+                                    <td>{{$d->uraian_spd}}</td>
                                     <td>{{$d->nomor_sp2d}}</td>
-                                    <td style="text-align: end;">Rp {{number_format($d->nilai_sp2d,0,',',',')}}</td>
+                                    <td style="text-align: end;">@money($d->nilai_sp2d)</td>
                                     <td>{{$d->uraian_transaksi}}</td>
-                                    <td style="text-align: end;">Rp {{number_format($d->nilai_transaksi,0,',',',')}}</td>
+                                    <td style="text-align: end;">@money($d->nilai_transaksi)</td>
                                     <!-- PPN -->
                                     <td>{{$d->ppn_jenis}}</td>
                                     <td>@money($d->ppn_jumlah)</td>
@@ -136,6 +132,9 @@
                         </table>
                     </div>
                     <!-- /.card-body -->
+                    <div class="card-footer">
+                        {{$data}}
+                    </div>
                 </div>
                 <!-- /.card -->
             </div>

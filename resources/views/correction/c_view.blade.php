@@ -28,7 +28,7 @@
                     <table class="form-group table-sm" style="width: 100%;">
                         <!-- PPN -->
                         <tr>
-                            <td colspan="2" class="table-success"><b>POTONGAN PAJAK PPN</b></td>
+                            <td colspan="2" class="table-success"><b>Potongan Pajak PPN</b></td>
                         </tr>
                         <tr>
                             <td style="width: 50%;">JENIS PAJAK</td>
@@ -44,7 +44,7 @@
                         </tr>
                         <!-- PPH21 -->
                         <tr>
-                            <td colspan="2" class="table-success"><b>POTONGAN PAJAK PPH21</b></td>
+                            <td colspan="2" class="table-success"><b>Potongan Pajak PPH21</b></td>
                         </tr>
                         <tr>
                             <td>JENIS PAJAK</td>
@@ -60,7 +60,7 @@
                         </tr>
                         <!-- PPH22 -->
                         <tr>
-                            <td colspan="2" class="table-success"><b>POTONGAN PAJAK PPH22</b></td>
+                            <td colspan="2" class="table-success"><b>Potongan Pajak PPH22</b></td>
                         </tr>
                         <tr>
                             <td>JENIS PAJAK</td>
@@ -68,7 +68,7 @@
                         </tr>
                         <tr>
                             <td>JUMLAH</td>
-                            <td>{{$data->c_pph22_jumlah}}</td>
+                            <td>@money($data->c_pph22_jumlah)</td>
                         </tr>
                         <tr>
                             <td>NTPN</td>
@@ -76,7 +76,7 @@
                         </tr>
                         <!-- PPH23 -->
                         <tr>
-                            <td colspan="2" class="table-success"><b>POTONGAN PAJAK PPH23</b></td>
+                            <td colspan="2" class="table-success"><b>Potongan Pajak PPH23</b></td>
                         </tr>
                         <tr>
                             <td>JENIS PAJAK</td>
@@ -84,7 +84,7 @@
                         </tr>
                         <tr>
                             <td>JUMLAH</td>
-                            <td>{{$data->c_pph23_jumlah}}</td>
+                            <td>@money($data->c_pph23_jumlah)</td>
                         </tr>
                         <tr>
                             <td>NTPN</td>
@@ -92,7 +92,7 @@
                         </tr>
                         <!-- PPHFIN -->
                         <tr>
-                            <td colspan="2" class="table-success"><b>POTONGAN PAJAK PPHFIN</b></td>
+                            <td colspan="2" class="table-success"><b>Potongan Pajak PPHFIN</b></td>
                         </tr>
                         <tr>
                             <td>JENIS PAJAK</td>
@@ -100,7 +100,7 @@
                         </tr>
                         <tr>
                             <td>JUMLAH</td>
-                            <td>{{$data->c_pphfin_jumlah}}</td>
+                            <td>@money($data->c_pphfin_jumlah)</td>
                         </tr>
                         <tr>
                             <td>NTPN</td>

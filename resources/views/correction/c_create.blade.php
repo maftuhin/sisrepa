@@ -50,7 +50,4 @@
 @endsection
 
 @section('js')
-<script>
-    $("input[required], select[required]").attr("oninvalid", "this.setCustomValidity('Wajib Diisi!')");
-</script>
 @endsection

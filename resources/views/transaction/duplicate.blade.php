@@ -43,16 +43,3 @@
     }
 </style>
 @endsection
-@section('js')
-<script type="text/javascript">
-    // var transaction = document.getElementById('nilai-transaksi');
-    // transaction.addEventListener('keyup', function(e) {
-    //     transaction.value = formatRupiah(this.value)
-    // })
-
-    // /* Fungsi formatRupiah */
-    // function formatRupiah(n) {
-    //     return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-    // }
-</script>
-@endsection

@@ -43,7 +43,7 @@
             </tr>
             <tr>
                 <td>Nilai Belanja</td>
-                <td><input type="text" name="nilai_spd" class="form-control" placeholder="Nilai Belanja" value="{{$data->nilai_spd}}"></td>
+                <td><input type="text" id="currency" name="nilai_spd" class="form-control" placeholder="Nilai Belanja" value="{{$data->nilai_spd}}"></td>
             </tr>
             <tr>
                 <td>Uraian SPM/SPD</td>
@@ -58,7 +58,7 @@
             </tr>
             <tr>
                 <td>Nilai Belanja</td>
-                <td><input type="text" name="nilai_sp2d" class="form-control" placeholder="Nilai Belanja" value="{{$data->nilai_sp2d}}"></td>
+                <td><input type="text" id="currency" name="nilai_sp2d" class="form-control" placeholder="Nilai Belanja" value="{{$data->nilai_sp2d}}"></td>
             </tr>
             <tr>
                 <td colspan="2" class="table-success"><b>TRANSAKSI</b></td>
@@ -69,19 +69,19 @@
             </tr>
             <tr>
                 <td>Nilai Transaksi</td>
-                <td><input type="text" name="nilai_transaksi" class="form-control" placeholder="Masukan Nilai Transaksi" value="{{$data->nilai_transaksi}}"></td>
+                <td><input type="text" id="currency" name="nilai_transaksi" class="form-control" placeholder="Masukan Nilai Transaksi" value="{{$data->nilai_transaksi}}"></td>
             </tr>
             <!-- PPN -->
             <tr>
-                <td colspan="2" class="table-success"><b>POTONGAN PAJAK PPN</b></td>
+                <td colspan="2" class="table-success"><b>Potongan Pajak PPN</b></td>
             </tr>
             <tr>
-                <td>JENIS PAJAK</td>
+                <td>Jenis Pajak</td>
                 <td><input type="text" class="form-control" placeholder="Jenis Pajak" name="ppn_jenis" value="{{$data->ppn_jenis}}"></td>
             </tr>
             <tr>
-                <td>JUMLAH</td>
-                <td><input type="number" class="form-control" placeholder="Jumlah" name="ppn_jumlah" value="{{$data->ppn_jumlah}}"></td>
+                <td>Jumlah</td>
+                <td><input type="text" id="currency" class="form-control" placeholder="Jumlah" name="ppn_jumlah" value="{{$data->ppn_jumlah}}"></td>
             </tr>
             <tr>
                 <td>NTPN</td>
@@ -89,15 +89,15 @@
             </tr>
             <!-- PPH21 -->
             <tr>
-                <td colspan="2" class="table-success"><b>POTONGAN PAJAK PPH21</b></td>
+                <td colspan="2" class="table-success"><b>Potongan Pajak PPH21</b></td>
             </tr>
             <tr>
-                <td>JENIS PAJAK</td>
+                <td>Jenis Pajak</td>
                 <td><input type="text" class="form-control" placeholder="Jenis Pajak" name="pph21_jenis" value="{{$data->pph21_jenis}}"></td>
             </tr>
             <tr>
-                <td>JUMLAH</td>
-                <td><input type="number" class="form-control" placeholder="Jumlah" name="pph21_jumlah" value="{{$data->pph21_jumlah}}"></td>
+                <td>Jumlah</td>
+                <td><input type="text" id="currency" class="form-control" placeholder="Jumlah" name="pph21_jumlah" value="{{$data->pph21_jumlah}}"></td>
             </tr>
             <tr>
                 <td>NTPN</td>
@@ -105,15 +105,15 @@
             </tr>
             <!-- PPH22 -->
             <tr>
-                <td colspan="2" class="table-success"><b>POTONGAN PAJAK PPH22</b></td>
+                <td colspan="2" class="table-success"><b>Potongan Pajak PPH22</b></td>
             </tr>
             <tr>
-                <td>JENIS PAJAK</td>
+                <td>Jenis Pajak</td>
                 <td><input type="text" class="form-control" placeholder="Jenis Pajak" name="pph22_jenis" value="{{$data->pph22_jenis}}"></td>
             </tr>
             <tr>
-                <td>JUMLAH</td>
-                <td><input type="number" class="form-control" placeholder="Jumlah" name="pph22_jumlah" value="{{$data->pph22_jumlah}}"></td>
+                <td>Jumlah</td>
+                <td><input type="text" id="currency" class="form-control" placeholder="Jumlah" name="pph22_jumlah" value="{{$data->pph22_jumlah}}"></td>
             </tr>
             <tr>
                 <td>NTPN</td>
@@ -121,15 +121,15 @@
             </tr>
             <!-- PPH23 -->
             <tr>
-                <td colspan="2" class="table-success"><b>POTONGAN PAJAK PPH23</b></td>
+                <td colspan="2" class="table-success"><b>Potongan Pajak PPH23</b></td>
             </tr>
             <tr>
-                <td>JENIS PAJAK</td>
+                <td>Jenis Pajak</td>
                 <td><input type="text" class="form-control" placeholder="Jenis Pajak" name="pph23_jenis" value="{{$data->pph23_jenis}}"></td>
             </tr>
             <tr>
-                <td>JUMLAH</td>
-                <td><input type="number" class="form-control" placeholder="Jumlah" name="pph23_jumlah" value="{{$data->pph23_jumlah}}"></td>
+                <td>Jumlah</td>
+                <td><input type="text" id="currency" class="form-control" placeholder="Jumlah" name="pph23_jumlah" value="{{$data->pph23_jumlah}}"></td>
             </tr>
             <tr>
                 <td>NTPN</td>
@@ -137,15 +137,15 @@
             </tr>
             <!-- PPHFIN -->
             <tr>
-                <td colspan="2" class="table-success"><b>POTONGAN PAJAK PPHFIN</b></td>
+                <td colspan="2" class="table-success"><b>Potongan Pajak PPHFIN</b></td>
             </tr>
             <tr>
-                <td>JENIS PAJAK</td>
+                <td>Jenis Pajak</td>
                 <td><input type="text" class="form-control" placeholder="Jenis Pajak" name="pphfin_jenis" value="{{$data->pphfin_jenis}}"></td>
             </tr>
             <tr>
-                <td>JUMLAH</td>
-                <td><input type="number" class="form-control" placeholder="Jumlah" name="pphfin_jumlah" value="{{$data->pphfin_jumlah}}"></td>
+                <td>Jumlah</td>
+                <td><input type="text" id="currency" class="form-control" placeholder="Jumlah" name="pphfin_jumlah" value="{{$data->pphfin_jumlah}}"></td>
             </tr>
             <tr>
                 <td>NTPN</td>

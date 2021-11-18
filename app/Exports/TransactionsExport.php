@@ -14,6 +14,13 @@ class TransactionsExport implements FromQuery, WithHeadings, WithStyles, ShouldA
 {
     use Exportable;
 
+    public function config(String $role, $skpd)
+    {
+        $this->role = $role;
+        $this->skpd = $skpd;
+        return $this;
+    }
+
     public function styles(Worksheet $sheet)
     {
         $sheet->mergeCells('A1:A2');
@@ -42,7 +49,7 @@ class TransactionsExport implements FromQuery, WithHeadings, WithStyles, ShouldA
     {
         return [
             [
-                'NO URUT',
+                'NO URUT ',
                 'JENIS TRX',
                 'SKPD',
                 'SPM/SPD',
@@ -102,7 +109,7 @@ class TransactionsExport implements FromQuery, WithHeadings, WithStyles, ShouldA
 
     public function query()
     {
-        return Transaction::query()
+        $data = Transaction::query()
             ->select(
                 'no_urut',
                 'trx',
@@ -130,5 +137,9 @@ class TransactionsExport implements FromQuery, WithHeadings, WithStyles, ShouldA
                 'pphfin_ntpn',
             )
             ->join('skpd', 'skpd.id', 'transactions.skpd_id');
+        if ($this->role != 'admin') {
+            $data->where('skpd_id', $this->skpd);
+        }
+        return $data;
     }
 }

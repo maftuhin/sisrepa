@@ -98,6 +98,19 @@
     @include('js.datatables')
     @endisset
     @yield('js')
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('input[id^="currency"]').maskMoney({
+            thousands: ',',
+            decimal: '.',
+            allowZero: true,
+            precision: 0,
+            // prefix:'Rp. '
+        });
+    })
+
+    // $("input[required], select[required]").attr("oninvalid", "this.setCustomValidity('Wajib Diisi!')");
+</script>
 </body>
 
 </html>

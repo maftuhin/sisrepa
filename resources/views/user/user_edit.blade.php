@@ -32,6 +32,18 @@
                                 <label>Email</label>
                                 <input type="email" name="email" class="form-control" value="{{$user->email}}" />
                             </div>
+                            <div class="form-group">
+                                <label>Role</label>
+                                <select class="form-control" name="role">
+                                    @foreach($role as $r)
+                                    @if($user->role == strtolower($r))
+                                    <option selected>{{$r}}</option>
+                                    @else
+                                    <option>{{$r}}</option>
+                                    @endif
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">

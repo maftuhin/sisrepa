@@ -39,7 +39,7 @@
             </tr>
             <tr>
                 <td>Nilai Belanja</td>
-                <td><input type="text" name="nilai_spd" class="form-control" placeholder="Nilai Belanja" required></td>
+                <td><input type="text" name="nilai_spd" class="form-control" placeholder="Nilai Belanja" id="currency" required></td>
             </tr>
             <tr>
                 <td>Uraian SPM/SPD</td>
@@ -54,7 +54,7 @@
             </tr>
             <tr>
                 <td>Nilai Belanja</td>
-                <td><input type="text" name="nilai_sp2d" class="form-control" placeholder="Nilai Belanja" required></td>
+                <td><input type="text" name="nilai_sp2d" class="form-control" placeholder="Nilai Belanja" id="currency" required></td>
             </tr>
             <tr>
                 <td colspan="2" class="table-success"><b>TRANSAKSI</b></td>
@@ -65,19 +65,19 @@
             </tr>
             <tr>
                 <td>Nilai Transaksi</td>
-                <td><input type="text" name="nilai_transaksi" class="form-control" placeholder="Masukan Nilai Transaksi" required></td>
+                <td><input type="text" name="nilai_transaksi" class="form-control" placeholder="Masukan Nilai Transaksi" id="currency" required></td>
             </tr>
             <!-- PPN -->
             <tr>
                 <td colspan="2" class="table-success"><b>POTONGAN PAJAK PPN</b></td>
             </tr>
             <tr>
-                <td>JENIS PAJAK</td>
+                <td>Jenis Pajak</td>
                 <td><input type="text" class="form-control" placeholder="Jenis Pajak" name="ppn_jenis"></td>
             </tr>
             <tr>
-                <td>JUMLAH</td>
-                <td><input type="number" class="form-control" placeholder="Jumlah" name="ppn_jumlah"></td>
+                <td>Jumlah</td>
+                <td><input type="text" class="form-control" placeholder="Jumlah" name="ppn_jumlah" id="currency"></td>
             </tr>
             <tr>
                 <td>NTPN</td>
@@ -88,12 +88,12 @@
                 <td colspan="2" class="table-success"><b>POTONGAN PAJAK PPH21</b></td>
             </tr>
             <tr>
-                <td>JENIS PAJAK</td>
+                <td>Jenis Pajak</td>
                 <td><input type="text" class="form-control" placeholder="Jenis Pajak" name="pph21_jenis"></td>
             </tr>
             <tr>
-                <td>JUMLAH</td>
-                <td><input type="number" class="form-control" placeholder="Jumlah" name="pph21_jumlah"></td>
+                <td>Jumlah</td>
+                <td><input type="text" class="form-control" placeholder="Jumlah" name="pph21_jumlah" id="currency"></td>
             </tr>
             <tr>
                 <td>NTPN</td>
@@ -104,12 +104,12 @@
                 <td colspan="2" class="table-success"><b>POTONGAN PAJAK PPH22</b></td>
             </tr>
             <tr>
-                <td>JENIS PAJAK</td>
+                <td>Jenis Pajak</td>
                 <td><input type="text" class="form-control" placeholder="Jenis Pajak" name="pph22_jenis"></td>
             </tr>
             <tr>
-                <td>JUMLAH</td>
-                <td><input type="number" class="form-control" placeholder="Jumlah" name="pph22_jumlah"></td>
+                <td>Jumlah</td>
+                <td><input type="text" class="form-control" placeholder="Jumlah" name="pph22_jumlah" id="currency"></td>
             </tr>
             <tr>
                 <td>NTPN</td>
@@ -120,12 +120,12 @@
                 <td colspan="2" class="table-success"><b>POTONGAN PAJAK PPH23</b></td>
             </tr>
             <tr>
-                <td>JENIS PAJAK</td>
+                <td>Jenis Pajak</td>
                 <td><input type="text" class="form-control" placeholder="Jenis Pajak" name="pph23_jenis"></td>
             </tr>
             <tr>
-                <td>JUMLAH</td>
-                <td><input type="number" class="form-control" placeholder="Jumlah" name="pph23_jumlah"></td>
+                <td>Jumlah</td>
+                <td><input type="text" class="form-control" placeholder="Jumlah" name="pph23_jumlah" id="currency"></td>
             </tr>
             <tr>
                 <td>NTPN</td>
@@ -136,12 +136,12 @@
                 <td colspan="2" class="table-success"><b>POTONGAN PAJAK PPHFIN</b></td>
             </tr>
             <tr>
-                <td>JENIS PAJAK</td>
+                <td>Jenis Pajak</td>
                 <td><input type="text" class="form-control" placeholder="Jenis Pajak" name="pphfin_jenis"></td>
             </tr>
             <tr>
-                <td>JUMLAH</td>
-                <td><input type="number" class="form-control" placeholder="Jumlah" name="pphfin_jumlah"></td>
+                <td>Jumlah</td>
+                <td><input type="text" class="form-control" placeholder="Jumlah" name="pphfin_jumlah" id="currency"></td>
             </tr>
             <tr>
                 <td>NTPN</td>

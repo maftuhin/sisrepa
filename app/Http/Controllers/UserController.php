@@ -30,7 +30,7 @@ class UserController extends Controller
         }
         $data = User::select('users.*', 'skpd.skpd')
             ->join('skpd', 'users.skpd', 'skpd.id')
-            ->orderBy('name', 'ASC')
+            ->orderBy('id', 'ASC')
             ->get();
         return view('user.user_list', ['data' => $data]);
     }
@@ -104,9 +104,11 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        $role = ['Admin', 'Editor'];
         $user = User::where('id', $id)->first();
         return view('user.user_edit', [
-            'user' => $user
+            'user' => $user,
+            'role' => $role
         ]);
     }
 
@@ -122,11 +124,13 @@ class UserController extends Controller
         $validated = $request->validate([
             'email' => 'required|unique:users,email,' . $id,
             'name' => 'required',
+            'role' => 'required'
         ]);
         $update = User::where('id', $id)
             ->update([
                 'name' => $validated['name'],
-                'email' => $validated['email']
+                'email' => $validated['email'],
+                'role' => strtolower($validated['role'])
             ]);
         if ($update == 1) {
             return redirect('/users')->with('success', 'User Telah Berhasil Diupdate');

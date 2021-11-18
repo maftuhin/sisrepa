@@ -8,7 +8,6 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Maatwebsite\Excel\Facades\Excel;
 
 class TransactionController extends Controller
 {
@@ -21,15 +20,16 @@ class TransactionController extends Controller
     {
         $me = Auth::user();
         if ($me->role == "admin") {
-            $data = Transaction::select('corrections.*','transactions.*', 'skpd.skpd')
+            $data = Transaction::select('corrections.*', 'transactions.*', 'skpd.skpd')
                 ->leftJoin('skpd', 'skpd.id', 'transactions.skpd_id')
                 ->leftJoin('corrections', 'corrections.trx_id', 'transactions.id')
-                ->paginate(20);
+                ->orderBy('transactions.id')
+                ->paginate(10);
         } else {
             $data = Transaction::select('transactions.*', 'skpd.skpd')
                 ->join('skpd', 'skpd.id', 'transactions.skpd_id')
                 ->where('transactions.skpd_id', $me->skpd)
-                ->paginate(20);
+                ->paginate(10);
         }
 
         return view('transaction.list', [
@@ -62,7 +62,7 @@ class TransactionController extends Controller
             'uraian_spd' => '',
             'nomor_sp2d' => 'required',
             'nilai_sp2d' => 'required',
-            'nilai_transaksi' => 'required|integer',
+            'nilai_transaksi' => 'required',
             'uraian_transaksi' => 'required',
             'ppn_jenis' => '',
             'ppn_jumlah' => '',
@@ -84,20 +84,19 @@ class TransactionController extends Controller
             'nilai_spd.required' => 'Nilai SPD Wajib Diisi',
             'no_urut.required' => 'Nomor Urut Wajib Diisi',
             'nilai_transaksi.required' => 'Nilai Transaksi Wajib Diisi',
-            'nilai_transaksi.integer' => 'Nilai Transaksi Harus Angka',
         ]);
 
         $store = Transaction::insert([
             'trx' => $validated['trx'],
             'no_urut' => $validated['no_urut'],
             'skpd_id' => $me->skpd,
-            'nilai_transaksi' => $validated['nilai_transaksi'],
+            'nilai_transaksi' => $this->money($validated['nilai_transaksi']),
             'uraian_transaksi' => $validated['uraian_transaksi'],
-            'nilai_spd' => $validated['nilai_spd'],
+            'nilai_spd' => $this->money($validated['nilai_spd']),
             'nomor_spd' => $validated['nomor_spd'],
             'uraian_spd' => $validated['uraian_spd'],
             'nomor_sp2d' => $validated['nomor_sp2d'],
-            'nilai_sp2d' => $validated['nilai_sp2d'],
+            'nilai_sp2d' => $this->money($validated['nilai_sp2d']),
             'ppn_jenis' => $validated['ppn_jenis'],
             'ppn_jumlah' => $validated['ppn_jumlah'],
             'ppn_ntpn' => $validated['ppn_ntpn'],
@@ -145,26 +144,26 @@ class TransactionController extends Controller
             'trx' => 'required',
             'no_urut' => 'required',
             'nomor_spd' => 'required',
-            'nilai_spd' => 'required|integer',
+            'nilai_spd' => 'required',
             'uraian_spd' => '',
             'nomor_sp2d' => 'nullable',
-            'nilai_sp2d' => 'nullable|integer',
-            'nilai_transaksi' => 'required|integer',
+            'nilai_sp2d' => 'nullable',
+            'nilai_transaksi' => 'required',
             'uraian_transaksi' => 'required',
             'ppn_jenis' => '',
-            'ppn_jumlah' => 'integer',
+            'ppn_jumlah' => '',
             'ppn_ntpn' => '',
             'pph21_jenis' => '',
-            'pph21_jumlah' => 'nullable|integer',
+            'pph21_jumlah' => 'nullable',
             'pph21_ntpn' => '',
             'pph22_jenis' => '',
-            'pph22_jumlah' => 'nullable|integer',
+            'pph22_jumlah' => 'nullable',
             'pph22_ntpn' => '',
             'pph23_jenis' => '',
-            'pph23_jumlah' => 'nullable|integer',
+            'pph23_jumlah' => 'nullable',
             'pph23_ntpn' => '',
             'pphfin_jenis' => '',
-            'pphfin_jumlah' => 'nullable|integer',
+            'pphfin_jumlah' => 'nullable',
             'pphfin_ntpn' => '',
         ]);
 
@@ -173,26 +172,26 @@ class TransactionController extends Controller
                 'trx' => $validated['trx'],
                 'no_urut' => $validated['no_urut'],
                 'nomor_spd' => $validated['nomor_spd'],
-                'nilai_spd' => $validated['nilai_spd'],
+                'nilai_spd' => $this->money($validated['nilai_spd']),
                 'uraian_spd' => $validated['uraian_spd'],
                 'nomor_sp2d' => $validated['nomor_sp2d'],
-                'nilai_sp2d' => $validated['nilai_sp2d'],
+                'nilai_sp2d' => $this->money($validated['nilai_sp2d']),
                 'uraian_transaksi' => $validated['uraian_transaksi'],
-                'nilai_transaksi' => $validated['nilai_transaksi'],
+                'nilai_transaksi' => $this->money($validated['nilai_transaksi']),
                 'ppn_jenis' => $validated['ppn_jenis'],
-                'ppn_jumlah' => $validated['ppn_jumlah'],
+                'ppn_jumlah' => $this->money($validated['ppn_jumlah']),
                 'ppn_ntpn' => $validated['ppn_ntpn'],
                 'pph21_jenis' => $validated['pph21_jenis'],
-                'pph21_jumlah' => $validated['pph21_jumlah'],
+                'pph21_jumlah' => $this->money($validated['pph21_jumlah']),
                 'pph21_ntpn' => $validated['pph21_ntpn'],
                 'pph22_jenis' => $validated['pph22_jenis'],
-                'pph22_jumlah' => $validated['pph22_jumlah'],
+                'pph22_jumlah' => $this->money($validated['pph22_jumlah']),
                 'pph22_ntpn' => $validated['pph22_ntpn'],
                 'pph23_jenis' => $validated['pph23_jenis'],
-                'pph23_jumlah' => $validated['pph23_jumlah'],
+                'pph23_jumlah' => $this->money($validated['pph23_jumlah']),
                 'pph23_ntpn' => $validated['pph23_ntpn'],
                 'pphfin_jenis' => $validated['pphfin_jenis'],
-                'pphfin_jumlah' => $validated['pphfin_jumlah'],
+                'pphfin_jumlah' => $this->money($validated['pphfin_jumlah']),
                 'pphfin_ntpn' => $validated['pphfin_ntpn'],
             ]);
         if ($update == 1) {
@@ -235,7 +234,7 @@ class TransactionController extends Controller
         $new = $transaction->replicate();
         $new->no_urut = $validated['no_urut'];
         $new->uraian_transaksi = $validated['uraian_transaksi'];
-        $new->nilai_transaksi = $validated['nilai_transaksi'];
+        $new->nilai_transaksi = $this->money($validated['nilai_transaksi']);
         $save = $new->save();
         if ($save == 1) {
             return redirect('/transaction');
@@ -255,7 +254,8 @@ class TransactionController extends Controller
 
     function export()
     {
-        $date = Carbon::now()->isoFormat('YYYY-MM-DD h:m');
-        return (new TransactionsExport)->download('Transactions-' . $date . '.xlsx');
+        $me = auth()->user();
+        $date = Carbon::now()->isoFormat('DD MMMM YYYY h_m');
+        return (new TransactionsExport)->config($me->role, $me->skpd)->download('Transactions-Exports-' . $date . '.xlsx');
     }
 }
